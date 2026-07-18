@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Echo Variables
         run: |
-          printf "username=%s\npassword=%s" ${{ variables.LOGIN_AUTHN }} ${{ secrets.LOGIN_API_KEY }} 
+          printf "username=%s\npassword=%s" ${{ vars.LOGIN_AUTHN }} ${{ secrets.LOGIN_API_KEY }} 
 
   read-csv:
     runs-on: ubuntu-latest
