@@ -1,11 +1,11 @@
-name: Read CSV
+name: My First Action
 
 on:
   workflow_dispatch:
   push:
-    paths:
-      - 'data/**.csv'
     branches: [ main ]
+    #paths:
+      #- 'data/**.csv'
   pull_request:
     branches: [ main ]
 
