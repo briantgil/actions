@@ -5,6 +5,8 @@ on:
   push:
     paths:
       - 'data/**.csv'
+    branches: [ main ]
+
 
 jobs:
   read-csv:
@@ -15,3 +17,6 @@ jobs:
 
       - name: Echo CSV contents
         run: cat data/myfile.csv
+
+
+
