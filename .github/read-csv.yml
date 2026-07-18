@@ -1,0 +1,17 @@
+name: Read CSV
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/**.csv'
+
+jobs:
+  read-csv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Echo CSV contents
+        run: cat data/myfile.csv
