@@ -6,9 +6,11 @@ on:
     paths:
       - 'data/**.csv'
     branches: [ main ]
-
+  pull_request:
+    branches: [ main ]
 
 jobs:
+
   read-csv:
     runs-on: ubuntu-latest
     steps:
@@ -18,5 +20,13 @@ jobs:
       - name: Echo CSV contents
         run: cat data/myfile.csv
 
-
+  fetch-api:
+    runs-on: ubuntu-latest
+    needs: read-csv
+    steps:
+      - name: Curl and echo part of response
+        run: |
+          RESPONSE=$(curl -s https://api.github.com/repos/${{ github.repository }})
+          echo "Full name: $(echo "$RESPONSE" | jq -r '.full_name')"
+          echo "Stars: $(echo "$RESPONSE" | jq -r '.stargazers_count')"
 
